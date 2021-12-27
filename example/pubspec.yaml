@@ -1,5 +1,5 @@
 name: open_file_example
-description: Demonstrates how to use the open_file plugin.
+description: Demonstrates how to use the open_file_safe plugin.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -23,7 +23,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  open_file:
+  open_file_safe:
     path: ../
 
 # For information on the generic Dart part of this file, see the

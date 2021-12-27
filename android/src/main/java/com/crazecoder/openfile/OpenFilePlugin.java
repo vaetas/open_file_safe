@@ -74,7 +74,7 @@ public class OpenFilePlugin implements MethodCallHandler
         OpenFilePlugin plugin = new OpenFilePlugin();
         plugin.activity = registrar.activity();
         plugin.context = registrar.context();
-        plugin.channel = new MethodChannel(registrar.messenger(), "open_file");
+        plugin.channel = new MethodChannel(registrar.messenger(), "open_file_safe");
         plugin.channel.setMethodCallHandler(plugin);
         registrar.addRequestPermissionsResultListener(plugin);
         registrar.addActivityResultListener(plugin);
@@ -88,7 +88,7 @@ public class OpenFilePlugin implements MethodCallHandler
     @SuppressLint("NewApi")
     public void onMethodCall(MethodCall call, @NonNull Result result) {
         isResultSubmitted = false;
-        if (call.method.equals("open_file")) {
+        if (call.method.equals("open_file_safe")) {
             this.result = result;
             filePath = call.argument("file_path");
             if (call.hasArgument("type") && call.argument("type") != null) {
@@ -218,8 +218,6 @@ public class OpenFilePlugin implements MethodCallHandler
                 return "application/vnd.google-earth.kml+xml";
             case "gpx":
                 return "application/gpx+xml";
-            case "apk":
-                return TYPE_STRING_APK;
             case "asf":
                 return "video/x-ms-asf";
             case "avi":
@@ -443,7 +441,7 @@ public class OpenFilePlugin implements MethodCallHandler
     public void onAttachedToActivity(ActivityPluginBinding binding) {
         channel =
                 new MethodChannel(
-                        flutterPluginBinding.getBinaryMessenger(), "open_file");
+                        flutterPluginBinding.getBinaryMessenger(), "open_file_safe");
         context = flutterPluginBinding.getApplicationContext();
         activity = binding.getActivity();
         channel.setMethodCallHandler(this);

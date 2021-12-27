@@ -1,5 +1,5 @@
 ## 3.2.1
-* Add command parser before create system call [#144](https://github.com/crazecoder/open_file/issues/144) (thanks to [@mludovico](https://github.com/mludovico))
+* Add command parser before create system call [#144](https://github.com/crazecoder/open_file_safe/issues/144) (thanks to [@mludovico](https://github.com/mludovico))
 * Fix startActivity() might have NPE issue with filePath on Android (thanks to [@AlexV525](https://github.com/AlexV525))
 * Add error type return when file path is nil on iOS
 ## 3.2.0
@@ -16,7 +16,7 @@
 * upgrade compileSdkVersion
 ## 3.0.2
 * add storage compatibility mode for AndroidQ.
-* fix [#106](https://github.com/crazecoder/open_file/issues/106) [#100](https://github.com/crazecoder/open_file/issues/100) [#74](https://github.com/crazecoder/open_file/issues/74)
+* fix [#106](https://github.com/crazecoder/open_file_safe/issues/106) [#100](https://github.com/crazecoder/open_file_safe/issues/100) [#74](https://github.com/crazecoder/open_file_safe/issues/74)
 * fix multiple file providers. (thanks to [@jawa0919](https://github.com/jawa0919))
 * Take file extension in lowercase for comparison.(thanks to [@kluverua](https://github.com/kluverua))
 * Fixed a typo in the error message for fileNotFound.(thanks to [@sebas642](https://github.com/sebas642))

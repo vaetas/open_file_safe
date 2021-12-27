@@ -1,22 +1,24 @@
-# open_file
-[![pub package](https://img.shields.io/pub/v/open_file.svg)](https://pub.dartlang.org/packages/open_file)
+# open_file_safe
+[![pub package](https://img.shields.io/pub/v/open_file_safe.svg)](https://pub.dartlang.org/packages/open_file_safe)
 
 A plug-in that can call native APP to open files with string result in flutter, support iOS(DocumentInteraction) / android(intent) / PC(ffi) / web(dart:html)
 
+## <b> Note: <b> 
+#### This package is same as [open_file](https://pub.dev/packages/open_file), but `.apk` file type is not supported. Thus, `android.permission.REQUEST_INSTALL_PACKAGES` permission is removed.
 ## Usage
 
-To use this plugin, add [open_file](https://pub.dartlang.org/packages/open_file#-installing-tab-) as a dependency in your pubspec.yaml file.
+To use this plugin, add [open_file_safe](https://pub.dartlang.org/packages/open_file_safe#-installing-tab-) as a dependency in your pubspec.yaml file.
 ```yaml
 dependencies:
   #androidx
-  open_file: ^lastVersion 
+  open_file_safe: ^lastVersion
   #support
-  #open_file: ^1.3.0
+  #open_file_safe: ^1.3.0
 ```
 
 ## Example
 ```dart
-import 'package:open_file/open_file.dart';
+import 'package:open_file_safe/open_file_safe.dart';
 
 OpenFile.open("/sdcard/example.txt");
 //OpenFile.open("/sdcard/example.txt", type: "text/plain", uti: "public.plain-text");
@@ -31,7 +33,6 @@ OpenFile.open("/sdcard/example.txt");
             {".kml",    "application/vnd.google-earth.kml+xml"},
             {".gpx",    "application/gpx+xml"},
             {".csv",    "application/vnd.ms-excel"},
-            {".apk",    "application/vnd.android.package-archive"},
             {".asf",    "video/x-ms-asf"},
             {".avi",    "video/x-msvideo"},
             {".bin",    "application/octet-stream"},
@@ -97,7 +98,13 @@ OpenFile.open("/sdcard/example.txt");
             {".zip",    "application/x-zip-compressed"},
             {"",        "*/*"}
 }
+```
 
+#### Not supported file types in android:
+```
+{
+     {".apk",    "application/vnd.android.package-archive"},
+}
 ```
 when Conflict with other plugins about FileProvider, add code below in your /android/app/src/main/AndroidManifest.xml
 ```xml

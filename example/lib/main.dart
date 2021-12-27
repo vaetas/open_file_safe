@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:open_file/open_file.dart';
+import 'package:open_file_safe/open_file_safe.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,7 +14,7 @@ class _MyAppState extends State<MyApp> {
   var _openResult = 'Unknown';
 
   Future<void> openFile() async {
-    final filePath = '/storage/emulated/0/update.apk';
+    final filePath = '/storage/emulated/0/image.png';
     final result = await OpenFile.open(filePath);
 
     setState(() {
